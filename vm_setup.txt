@@ -5,3 +5,7 @@ sudo apt install ubuntu-desktop
 sudo reboot
 sudo ubuntu-drivers install
 sudo reboot
+
+
+# Source image ubuntu-pro-2204-jammy-v20250701
+# GPUS: V100, L4
