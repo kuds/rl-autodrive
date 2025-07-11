@@ -1,3 +1,5 @@
+# These setup commands are intended to be used on Ubuntu 22.04 PRO Version hosted on Google Cloud 
+
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
 sudo apt update && sudo apt upgrade
