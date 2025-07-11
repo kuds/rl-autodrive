@@ -5,7 +5,8 @@ sudo apt install ubuntu-desktop
 sudo reboot
 sudo ubuntu-drivers install
 sudo reboot
+sudo apt install python3-pip
 
-
+# Need to install ros2
 # Source image ubuntu-pro-2204-jammy-v20250701
 # GPUS: V100, L4
