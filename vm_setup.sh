@@ -14,7 +14,7 @@ sudo apt install -y ubuntu-desktop
 sudo ubuntu-drivers install
 
 # Install Python3 Pip
-sudo apt install -y python3-pip
+# sudo apt install -y python3-pip
 
 # Get AutoDrive Files
 wget -P ./Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_explore_linux.zip
