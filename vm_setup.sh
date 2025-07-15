@@ -6,6 +6,10 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y ubuntu-desktop
 sudo ubuntu-drivers install
 sudo apt install -y python3-pip
+wget /Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_explore_linux.zip
+unzip autodrive_simulator_explore_linux.zip
+wget /Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_devkit.zip
+unzip autodrive_devkit.zip
 sudo reboot
 
 # Need to install ros2
