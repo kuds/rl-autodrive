@@ -18,9 +18,10 @@ sudo apt install -y python3-pip
 
 # Get AutoDrive Files
 wget -P ./Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_explore_linux.zip
-unzip ./Documents/autodrive_simulator_explore_linux.zip
+unzip ./Documents/autodrive_simulator_explore_linux.zip -d ./Documents/
+sudo chmod +x ./Documents/autodrive_simulator/AutoDRIVE Simulator.x86_64
 wget -P ./Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_devkit.zip
-unzip ./Documents/autodrive_devkit.zip
+unzip ./Documents/autodrive_devkit.zip -d ./Documents/
 
 # Install ROS 2 Humble
 sudo apt install -y software-properties-common
@@ -31,8 +32,8 @@ curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-a
 sudo dpkg -i /tmp/ros2-apt-source.deb
 sudo apt update
 sudo NEEDRESTART_MODE=a apt upgrade -y
-sudo apt install ros-humble-desktop
-sudo apt install ros-dev-tools
+sudo apt install -y ros-humble-desktop
+sudo apt install -y ros-dev-tools 
 
 sudo reboot
 
