@@ -2,7 +2,7 @@
 
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo NEEDRESTART_MODE=a apt upgrade -y
 sudo apt install -y ubuntu-desktop
 sudo ubuntu-drivers install
 sudo apt install -y python3-pip
