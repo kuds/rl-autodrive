@@ -3,11 +3,10 @@
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
 sudo apt update && sudo apt upgrade
-sudo apt install ubuntu-desktop
-sudo reboot
+sudo apt install -y ubuntu-desktop
 sudo ubuntu-drivers install
+sudo apt install -y python3-pip
 sudo reboot
-sudo apt install python3-pip
 
 # Need to install ros2
 # Source image ubuntu-pro-2204-jammy-v20250701
