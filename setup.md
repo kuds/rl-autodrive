@@ -1,6 +1,10 @@
 # Setup Instructions
 
 ## Google Cloud VM Spec
+- Machine type: g2-standard-16 (16 vCPUs, 64 GB Memory)
+- Architecture: x86/64
+- Operating System: Ubuntu Pro 22.04 LTS (Jammy)
+- GPUs: NVIDIA L4, V100, A100
 
 ## Script Setup
 ```bash
