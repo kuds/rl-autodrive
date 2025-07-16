@@ -1,9 +1,5 @@
 # These setup commands are intended to be used on Ubuntu 22.04 PRO Version hosted on Google Cloud 
 
-# Get Chrome Remote Desktop
-wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
-
 # Update Packages
 sudo apt update && sudo NEEDRESTART_MODE=a apt upgrade -y
 
@@ -34,6 +30,13 @@ sudo apt update
 sudo NEEDRESTART_MODE=a apt upgrade -y
 sudo apt install -y ros-humble-desktop
 sudo apt install -y ros-dev-tools 
+
+# Get Chrome Remote Desktop
+wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
+
+# Update Packages
+sudo apt update && sudo NEEDRESTART_MODE=a apt upgrade -y
 
 sudo reboot
 
