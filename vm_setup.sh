@@ -1,7 +1,8 @@
 # These setup commands are intended to be used on Ubuntu 22.04 PRO Version hosted on Google Cloud 
 
 # Update Packages
-sudo apt update && sudo NEEDRESTART_MODE=a apt upgrade -y
+sudo apt update
+sudo NEEDRESTART_MODE=a apt upgrade -y
 
 # Install Ubuntu Desktop
 sudo apt install -y ubuntu-desktop
@@ -36,7 +37,8 @@ wget -P ./Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-
 unzip ./Documents/autodrive_devkit.zip -d ./Documents/
 
 # Update Packages
-sudo apt update && sudo NEEDRESTART_MODE=a apt upgrade -y
+sudo apt update 
+sudo NEEDRESTART_MODE=a apt upgrade -y
 
 sudo reboot
 
