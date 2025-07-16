@@ -32,7 +32,7 @@ sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
 # Get AutoDrive Files
 wget -P ./Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_explore_linux.zip
 unzip ./Documents/autodrive_simulator_explore_linux.zip -d ./Documents/
-sudo chmod +x ./Documents/autodrive_simulator/AutoDRIVE Simulator.x86_64
+sudo chmod +x "./Documents/autodrive_simulator/AutoDRIVE Simulator.x86_64"
 wget -P ./Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_devkit.zip
 unzip ./Documents/autodrive_devkit.zip -d ./Documents/
 
