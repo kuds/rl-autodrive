@@ -30,16 +30,23 @@ wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
 
 # Get AutoDrive Files
-wget -P ./Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_explore_linux.zip
-unzip ./Documents/autodrive_simulator_explore_linux.zip -d ./Documents/
-sudo chmod +x "./Documents/autodrive_simulator/AutoDRIVE Simulator.x86_64"
-wget -P ./Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_devkit.zip
-unzip ./Documents/autodrive_devkit.zip -d ./Documents/
+wget -P ./Documents/AutoDrive/Explore https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_explore_linux.zip
+unzip ./Documents/AutoDrive/Explore/autodrive_simulator_explore_linux.zip -d ./Documents/AutoDrive/Explore
+sudo chmod +x "../Documents/AutoDrive/Explore/autodrive_simulator/AutoDRIVE Simulator.x86_64"
+
+wget -P ./Documents/AutoDrive/Practice https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_practice_linux.zip
+unzip ./Documents/AutoDrive/Explore/autodrive_simulator_explore_linux.zip -d ./Documents/AutoDrive/Practice
+sudo chmod +x "./Documents/AutoDrive/Practice/autodrive_simulator/AutoDRIVE Simulator.x86_64"
+
+wget -P ./Documents/AutoDrive/DevKit https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_devkit.zip
+unzip ./Documents/AutoDrive/DevKit/autodrive_devkit.zip -d ./Documents/AutoDrive/DevKit
+sudo chmod 777 -v ./Documents/
 
 # Update Packages
 sudo apt update 
 sudo NEEDRESTART_MODE=a apt upgrade -y
 
+# Reboot
 sudo reboot
 
 # Source image ubuntu-pro-2204-jammy-v20250701
