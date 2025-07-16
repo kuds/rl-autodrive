@@ -12,13 +12,6 @@ sudo ubuntu-drivers install
 # Install Python3 Pip
 # sudo apt install -y python3-pip
 
-# Get AutoDrive Files
-wget -P ./Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_explore_linux.zip
-unzip ./Documents/autodrive_simulator_explore_linux.zip -d ./Documents/
-sudo chmod +x ./Documents/autodrive_simulator/AutoDRIVE Simulator.x86_64
-wget -P ./Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_devkit.zip
-unzip ./Documents/autodrive_devkit.zip -d ./Documents/
-
 # Install ROS 2 Humble
 sudo apt install -y software-properties-common
 sudo add-apt-repository universe
@@ -34,6 +27,13 @@ sudo apt install -y ros-dev-tools
 # Get Chrome Remote Desktop
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
+
+# Get AutoDrive Files
+wget -P ./Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_explore_linux.zip
+unzip ./Documents/autodrive_simulator_explore_linux.zip -d ./Documents/
+sudo chmod +x ./Documents/autodrive_simulator/AutoDRIVE Simulator.x86_64
+wget -P ./Documents/ https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_devkit.zip
+unzip ./Documents/autodrive_devkit.zip -d ./Documents/
 
 # Update Packages
 sudo apt update && sudo NEEDRESTART_MODE=a apt upgrade -y
