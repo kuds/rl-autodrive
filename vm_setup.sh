@@ -2,19 +2,6 @@
 
 # These setup commands are intended to be used on Ubuntu 22.04 PRO Version hosted on Google Cloud
 
-# --- Argument Parsing ---
-# Set default value.
-VIRTUALIZATION_ENABLED="n"
-# Loop through all provided arguments.
-for arg in "$@"; do
-  if [ "$arg" == "--with_virtualization" ]; then
-    VIRTUALIZATION_ENABLED="y"
-    # Exit loop once the flag is found.
-    break
-  fi
-done
-# --- End Argument Parsing ---
-
 # Update Packages
 sudo apt update
 sudo NEEDRESTART_MODE=a apt upgrade -y
@@ -54,9 +41,10 @@ wget -P ./AutoDrive/DevKit https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-Robo
 unzip ./AutoDrive/DevKit/autodrive_devkit.zip -d ./AutoDrive/DevKit
 sudo chmod 777 -v ./AutoDrive/
 
-# Conditionally install Docker based on the VIRTUALIZATION_ENABLED flag
-if [ "$VIRTUALIZATION_ENABLED" = "y" ]; then
-    echo "Virtualization enabled. Installing Docker Engine and Docker Desktop..."
+# --- Automatic Docker Installation based on KVM detection ---
+# Check if the KVM device exists. This indicates virtualization is enabled.
+if [ -e /dev/kvm ]; then
+    echo "✅ KVM detected. Proceeding with Docker installation..."
 
     # Install Docker Engine
     # Add Docker's official GPG key:
@@ -77,15 +65,15 @@ if [ "$VIRTUALIZATION_ENABLED" = "y" ]; then
     wget https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb
     sudo apt-get install -y ./docker-desktop-amd64.deb
 else
-    echo "Virtualization disabled. Skipping Docker installation."
+    echo "❌ KVM not detected (/dev/kvm is missing). Skipping Docker installation."
+    echo "   Note: On cloud platforms like GCP, you may need to enable 'nested virtualization' for the VM."
 fi
 
 # Update Packages
 sudo apt update
 sudo NEEDRESTART_MODE=a apt upgrade -y
 
-# Reboot
-sudo reboot
+echo "Installation Complete. Please restart the VM"
 
 # Source image ubuntu-pro-2204-jammy-v20250701
 # GPUS: V100, L4
