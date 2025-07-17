@@ -7,6 +7,13 @@
 - GPUs: NVIDIA L4, V100, A100
 
 ## Script Setup
+
+### VM with Virtualization Enabled
+```bash
+curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_setup.sh | sudo bash --with_virtualization
+```
+
+### VM without Virtualization Enabled
 ```bash
 curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_setup.sh | sudo bash
 ```
@@ -16,3 +23,5 @@ curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_s
 - [Launch Ubuntu 22.04 Desktop on Google Cloud](https://ubuntu.com/blog/launch-ubuntu-22-04-desktop-on-google-cloud)
 - [Chrome Remote Desktop](https://remotedesktop.google.com/unsupported-browser?target=%2F)
 - [ROS 2 Documentation: Humble - Ubuntu Installation](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
+- [Docker Documentation](https://docs.docker.com)
+- [Google Cloud Platform - Enable Nested Virtualization](https://cloud.google.com/compute/docs/instances/nested-virtualization/enabling)
