@@ -7,13 +7,7 @@
 - GPUs: NVIDIA L4, V100, A100
 
 ## Script Setup
-
-### VM with Virtualization Enabled
-```bash
-curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_setup.sh | sudo bash --with_virtualization
-```
-
-### VM without Virtualization Enabled
+This script will setup all the dependencies include docker if virtualization is enabled on Google Cloud VM Instance
 ```bash
 curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_setup.sh | sudo bash
 ```
