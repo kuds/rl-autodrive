@@ -30,17 +30,34 @@ wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
 
 # Get AutoDrive Files
-wget -P ./Documents/AutoDrive/Explore https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_explore_linux.zip
-unzip ./Documents/AutoDrive/Explore/autodrive_simulator_explore_linux.zip -d ./Documents/AutoDrive/Explore
-sudo chmod +x "./Documents/AutoDrive/Explore/autodrive_simulator/AutoDRIVE Simulator.x86_64"
+wget -P ./AutoDrive/Explore https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_explore_linux.zip
+unzip ./AutoDrive/Explore/autodrive_simulator_explore_linux.zip -d ./AutoDrive/Explore
+sudo chmod +x "./AutoDrive/Explore/autodrive_simulator/AutoDRIVE Simulator.x86_64"
 
-wget -P ./Documents/AutoDrive/Practice https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_practice_linux.zip
-unzip ./Documents/AutoDrive/Explore/autodrive_simulator_explore_linux.zip -d ./Documents/AutoDrive/Practice
-sudo chmod +x "./Documents/AutoDrive/Practice/autodrive_simulator/AutoDRIVE Simulator.x86_64"
+wget -P ./AutoDrive/Practice https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_practice_linux.zip
+unzip ./AutoDrive/Explore/autodrive_simulator_explore_linux.zip -d ./AutoDrive/Practice
+sudo chmod +x "./AutoDrive/Practice/autodrive_simulator/AutoDRIVE Simulator.x86_64"
 
-wget -P ./Documents/AutoDrive/DevKit https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_devkit.zip
-unzip ./Documents/AutoDrive/DevKit/autodrive_devkit.zip -d ./Documents/AutoDrive/DevKit
-sudo chmod 777 -v ./Documents/
+wget -P ./AutoDrive/DevKit https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_devkit.zip
+unzip ./AutoDrive/DevKit/autodrive_devkit.zip -d ./AutoDrive/DevKit
+sudo chmod 777 -v ./AutoDrive/
+
+# Install Docker Engine
+# Add Docker's official GPG key:
+# sudo apt-get update
+# sudo apt-get install -y ca-certificates curl
+# sudo install -m 0755 -d /etc/apt/keyrings
+# sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+# sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# # Add the repository to Apt sources:
+# echo \
+#   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+#   $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+#   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# sudo apt-get update
+
+# sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Update Packages
 sudo apt update 
