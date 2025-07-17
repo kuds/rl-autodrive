@@ -41,33 +41,20 @@ wget -P ./AutoDrive/DevKit https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-Robo
 unzip ./AutoDrive/DevKit/autodrive_devkit.zip -d ./AutoDrive/DevKit
 sudo chmod 777 -v ./AutoDrive/
 
-# --- Automatic Docker Installation based on KVM detection ---
-# Check if the KVM device exists. This indicates virtualization is enabled.
-if [ -e /dev/kvm ]; then
-    echo "✅ KVM detected. Proceeding with Docker installation..."
+# Install Docker Engine
+# Add Docker's official GPG key:
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-    # Install Docker Engine
-    # Add Docker's official GPG key:
-    sudo install -m 0755 -d /etc/apt/keyrings
-    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-    sudo chmod a+r /etc/apt/keyrings/docker.asc
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
 
-    # Add the repository to Apt sources:
-    echo \
-      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-      $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
-      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt-get update
-
-    sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-    # Install Docker Desktop
-    wget https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb
-    sudo apt-get install -y ./docker-desktop-amd64.deb
-else
-    echo "❌ KVM not detected (/dev/kvm is missing). Skipping Docker installation."
-    echo "   Note: On cloud platforms like GCP, you may need to enable 'nested virtualization' for the VM."
-fi
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Update Packages
 sudo apt update
