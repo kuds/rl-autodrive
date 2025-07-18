@@ -19,3 +19,4 @@ curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_s
 - [ROS 2 Documentation: Humble - Ubuntu Installation](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 - [Docker Documentation](https://docs.docker.com)
 - [Google Cloud Platform - Enable Nested Virtualization](https://cloud.google.com/compute/docs/instances/nested-virtualization/enabling)
+- [Techincal Guide - AutoDRIVE Ecosystem](https://autodrive-ecosystem.github.io/competitions/roboracer-sim-racing-guide/)
