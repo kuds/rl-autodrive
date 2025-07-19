@@ -37,7 +37,7 @@ wget -P ./AutoDrive/Practice https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-Ro
 unzip ./AutoDrive/Practice/autodrive_simulator_practice_linux.zip -d ./AutoDrive/Practice
 sudo chmod +x "./AutoDrive/Practice/autodrive_simulator/AutoDRIVE Simulator.x86_64"
 
-wget -P ./AutoDrive/Practice https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_compete_linux.zip
+wget -P ./AutoDrive/Compete https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_compete_linux.zip
 unzip ./AutoDrive/Compete/autodrive_simulator_practice_linux.zip -d ./AutoDrive/Compete
 sudo chmod +x "./AutoDrive/Compete/autodrive_simulator/AutoDRIVE Simulator.x86_64"
 
@@ -47,6 +47,7 @@ sudo chmod 777 -v ./AutoDrive/
 sudo chmod 777 -v ./AutoDrive/DevKit
 sudo chmod 777 -v ./AutoDrive/Explore
 sudo chmod 777 -v ./AutoDrive/Practice
+sudo chmod 777 -v ./AutoDrive/Compete
 
 # Install Docker Engine
 # Add Docker's official GPG key:
