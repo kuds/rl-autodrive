@@ -59,6 +59,9 @@ sudo apt-get update
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+# Install TF Tranformations
+sudo apt install ros-humble-tf-transformations
+
 # Install pip3
 sudo apt-get install -y python3-pip
 
