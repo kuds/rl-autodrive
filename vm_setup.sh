@@ -34,8 +34,12 @@ unzip ./AutoDrive/Explore/autodrive_simulator_explore_linux.zip -d ./AutoDrive/E
 sudo chmod +x "./AutoDrive/Explore/autodrive_simulator/AutoDRIVE Simulator.x86_64"
 
 wget -P ./AutoDrive/Practice https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_practice_linux.zip
-unzip ./AutoDrive/Explore/autodrive_simulator_practice_linux.zip -d ./AutoDrive/Practice
+unzip ./AutoDrive/Practice/autodrive_simulator_practice_linux.zip -d ./AutoDrive/Practice
 sudo chmod +x "./AutoDrive/Practice/autodrive_simulator/AutoDRIVE Simulator.x86_64"
+
+wget -P ./AutoDrive/Practice https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_compete_linux.zip
+unzip ./AutoDrive/Compete/autodrive_simulator_practice_linux.zip -d ./AutoDrive/Compete
+sudo chmod +x "./AutoDrive/Compete/autodrive_simulator/AutoDRIVE Simulator.x86_64"
 
 wget -P ./AutoDrive/DevKit https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_devkit.zip
 unzip ./AutoDrive/DevKit/autodrive_devkit.zip -d ./AutoDrive/DevKit
@@ -60,10 +64,13 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Install TF Tranformations
-sudo apt install ros-humble-tf-transformations
+sudo apt install -y ros-humble-tf-transformations
 
 # Install pip3
 sudo apt-get install -y python3-pip
+
+# Install Python Dependencies
+sudo pip3 install -r ./AutoDrive/DevKit/autodrive_devkit/requirements_python_3.10.txt
 
 # Update Packages
 sudo apt update
