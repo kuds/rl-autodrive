@@ -71,6 +71,9 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 # Install TF Tranformations
 sudo apt install -y ros-humble-tf-transformations
 
+# Install rviz imu plugin
+sudo apt-get install -y ros-humble-rviz-imu-plugin
+
 # Install pip3
 sudo apt-get install -y python3-pip
 sudo apt-get install -y python3.10-venv
