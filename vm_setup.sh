@@ -38,7 +38,7 @@ unzip ./AutoDrive/Practice/autodrive_simulator_practice_linux.zip -d ./AutoDrive
 sudo chmod +x "./AutoDrive/Practice/autodrive_simulator/AutoDRIVE Simulator.x86_64"
 
 wget -P ./AutoDrive/Compete https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_compete_linux.zip
-unzip ./AutoDrive/Compete/autodrive_simulator_practice_linux.zip -d ./AutoDrive/Compete
+unzip ./AutoDrive/Compete/autodrive_simulator_compete_linux.zip -d ./AutoDrive/Compete
 sudo chmod +x "./AutoDrive/Compete/autodrive_simulator/AutoDRIVE Simulator.x86_64"
 
 wget -P ./AutoDrive/DevKit https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_devkit.zip
