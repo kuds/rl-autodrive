@@ -48,6 +48,10 @@ sudo chmod 777 -v ./AutoDrive/DevKit
 sudo chmod 777 -v ./AutoDrive/Explore
 sudo chmod 777 -v ./AutoDrive/Practice
 sudo chmod 777 -v ./AutoDrive/Compete
+sudo chmod 777 -v ./AutoDrive/DevKit//autodrive_devkit
+sudo chmod 777 -v ./AutoDrive/Explore/autodrive_simulator
+sudo chmod 777 -v ./AutoDrive/Practice/autodrive_simulator
+sudo chmod 777 -v ./AutoDrive/Compete/autodrive_simulator
 
 # Install Docker Engine
 # Add Docker's official GPG key:
@@ -69,8 +73,10 @@ sudo apt install -y ros-humble-tf-transformations
 
 # Install pip3
 sudo apt-get install -y python3-pip
+sudo apt-get install -y python3.10-venv
 
 # Install Python Dependencies
+# Numpy==1.23.5, opencv-contrib-python==4.8.1.78, attrdict
 sudo pip3 install -r ./AutoDrive/DevKit/autodrive_devkit/requirements_python_3.10.txt
 
 # Update Packages
