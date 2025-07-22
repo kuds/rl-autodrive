@@ -5,27 +5,27 @@ export DEBIAN_FRONTEND=noninteractive
 
 # Update Packages
 sudo apt update
-sudo DEBIAN_FRONTEND=noninteractive NEEDRESTART_MODE=a apt upgrade -y
+sudo NEEDRESTART_MODE=a apt upgrade -y
 
 # Install Ubuntu Desktop
-sudo DEBIAN_FRONTEND=noninteractive apt install -y ubuntu-desktop
+sudo apt install -y ubuntu-desktop
 
 # Install Nvidia Drivers
-sudo DEBIAN_FRONTEND=noninteractive ubuntu-drivers install
+sudo ubuntu-drivers install
 
 echo "Ubuntu Drivers Installed"
 
 # Install ROS 2 Humble
-sudo DEBIAN_FRONTEND=noninteractive apt install -y software-properties-common
+sudo apt install -y software-properties-common
 sudo add-apt-repository universe
-sudo DEBIAN_FRONTEND=noninteractive apt update && sudo apt install curl -y
+sudo apt update && sudo apt install curl -y
 export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
 curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo $VERSION_CODENAME)_all.deb" # If using Ubuntu derivates use $UBUNTU_CODENAME
 sudo dpkg -i /tmp/ros2-apt-source.deb
 sudo apt update
-sudo NEEDRESTART_MODE=a apt upgrade -y
-sudo DEBIAN_FRONTEND=noninteractive apt install -y ros-humble-desktop
-sudo DEBIAN_FRONTEND=noninteractive apt install -y ros-dev-tools
+sudo apt upgrade -y
+sudo apt install -y ros-humble-desktop
+sudo apt install -y ros-dev-tools
 
 # Get Chrome Remote Desktop
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
