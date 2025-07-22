@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # These setup commands are intended to be used on Ubuntu 22.04 PRO Version hosted on Google Cloud
+export DEBIAN_FRONTEND=noninteractive
 
 # Update Packages
 sudo apt update
@@ -10,7 +11,7 @@ sudo DEBIAN_FRONTEND=noninteractive NEEDRESTART_MODE=a apt upgrade -y
 sudo DEBIAN_FRONTEND=noninteractive apt install -y ubuntu-desktop
 
 # Install Nvidia Drivers
-sudo ubuntu-drivers install
+sudo DEBIAN_FRONTEND=noninteractive ubuntu-drivers install
 
 echo "Ubuntu Drivers Installed"
 
