@@ -2,12 +2,15 @@
 
 # These setup commands are intended to be used on Ubuntu 22.04 PRO Version hosted on Google Cloud
 
+# Set script to Non-interactive
+export DEBIAN_FRONTEND=noninteractive
+
 # Update Packages
 sudo apt update
-sudo NEEDRESTART_MODE=a DEBIAN_FRONTEND=noninteractive apt upgrade -y
+sudo NEEDRESTART_MODE=a apt upgrade -y
 
 # Install Ubuntu Desktop
-sudo DEBIAN_FRONTEND=noninteractive apt install -y ubuntu-desktop
+sudo apt install -y ubuntu-desktop
 
 # Install Nvidia Drivers
 sudo ubuntu-drivers install
@@ -20,7 +23,7 @@ export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrast
 curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo $VERSION_CODENAME)_all.deb" # If using Ubuntu derivates use $UBUNTU_CODENAME
 sudo dpkg -i /tmp/ros2-apt-source.deb
 sudo apt update
-sudo NEEDRESTART_MODE=a DEBIAN_FRONTEND=noninteractive apt upgrade -y
+sudo NEEDRESTART_MODE=a apt upgrade -y
 sudo apt install -y ros-humble-desktop
 sudo apt install -y ros-dev-tools
 
@@ -88,7 +91,7 @@ sudo pip3 install -r ./AutoDrive/DevKit/autodrive_devkit/requirements_python_3.1
 
 # Update Packages
 sudo apt update
-sudo NEEDRESTART_MODE=a DEBIAN_FRONTEND=noninteractive apt upgrade -y
+sudo NEEDRESTART_MODE=a apt upgrade -y
 
 echo "Installation Complete. Please restart the VM"
 
