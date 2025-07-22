@@ -4,7 +4,7 @@
 
 # Update Packages
 sudo apt update
-sudo NEEDRESTART_MODE=a apt upgrade -y
+sudo NEEDRESTART_MODE=a DEBIAN_FRONTEND=noninteractive apt upgrade -y
 
 # Install Ubuntu Desktop
 sudo apt install -y ubuntu-desktop
