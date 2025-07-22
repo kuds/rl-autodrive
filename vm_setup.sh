@@ -68,6 +68,10 @@ sudo apt-get update
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+# Get Docker Images
+docker pull autodriveecosystem/autodrive_roboracer_api:2025-icra-compete
+docker pull autodriveecosystem/autodrive_roboracer_sim:2025-icra-compete
+
 # Install TF Tranformations
 sudo apt install -y ros-humble-tf-transformations
 
