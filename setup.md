@@ -7,6 +7,8 @@
 - GPUs: NVIDIA L4, V100, A100
 
 ## Script Setup
+
+### ICRA 2025
 This script will setup all the dependencies include docker if virtualization is enabled on Google Cloud VM Instance
 ```bash
 curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_setup.sh | sudo bash
