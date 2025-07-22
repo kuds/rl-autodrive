@@ -7,7 +7,7 @@ sudo apt update
 sudo NEEDRESTART_MODE=a DEBIAN_FRONTEND=noninteractive apt upgrade -y
 
 # Install Ubuntu Desktop
-sudo DEBIAN_FRONTEND=noninteractive install -y ubuntu-desktop
+sudo DEBIAN_FRONTEND=noninteractive apt install -y ubuntu-desktop
 
 # Install Nvidia Drivers
 sudo ubuntu-drivers install
