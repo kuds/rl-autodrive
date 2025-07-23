@@ -3,6 +3,9 @@
 # These setup commands are intended to be used on Ubuntu 22.04 PRO Version hosted on Google Cloud
 export DEBIAN_FRONTEND=noninteractive
 
+# Update and Upgrade
+# sudo apt update && sudo apt upgrade -y
+
 # Update Packages
 sudo apt update
 sudo NEEDRESTART_MODE=a apt upgrade -y
