@@ -90,8 +90,9 @@ sudo apt-get install -y python3.10-venv
 
 # Install Python Dependencies
 # Numpy==1.23.5, opencv-contrib-python==4.8.1.78, attrdict
-pip3 install --upgrade pip
+pip3 install --upgrade pip setuptools packaging
 pip3 install -r ./AutoDrive/DevKit/autodrive_devkit/requirements_python_3.10.txt
+pip3 install numpy==1.23.5 opencv-contrib-python==4.8.1.78 attrdict
 
 # Update Packages
 sudo apt update
