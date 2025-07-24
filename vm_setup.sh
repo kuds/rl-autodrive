@@ -30,9 +30,13 @@ sudo apt upgrade -y
 sudo apt install -y ros-humble-desktop
 sudo apt install -y ros-dev-tools
 
-# Get Chrome Remote Desktop
-wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
+# Install Chrome Remote Desktop
+wget -O /tmp/chrome-remote-desktop_current_amd64.deb https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+sudo apt-get install --assume-yes /tmp/chrome-remote-desktop_current_amd64.deb
+
+# Install Visual Studio Code
+curl -L -o /tmp/vsc.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+sudo apt-get install --assume-yes /tmp/vsc.deb
 
 # Get AutoDrive Files
 wget -P ./AutoDrive/Explore https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_explore_linux.zip
@@ -87,6 +91,9 @@ sudo apt-get install -y ros-humble-rviz-imu-plugin
 # Install pip3
 sudo apt-get install -y python3-pip
 sudo apt-get install -y python3.10-venv
+
+https://code.visualstudio.com/download#
+https://go.microsoft.com/fwlink/?LinkID=760868
 
 # Install Python Dependencies
 # Numpy==1.23.5, opencv-contrib-python==4.8.1.78, attrdict
