@@ -11,7 +11,7 @@ sudo apt update
 sudo NEEDRESTART_MODE=a apt upgrade -y
 
 # Install Ubuntu Desktop
-sudo apt install -y ubuntu-desktop
+sudo apt-get install -y ubuntu-desktop
 
 # Install Nvidia Drivers
 sudo ubuntu-drivers install
@@ -94,7 +94,7 @@ docker pull autodriveecosystem/autodrive_roboracer_api:2025-icra-compete
 docker pull autodriveecosystem/autodrive_roboracer_sim:2025-icra-compete
 
 # Install TF Tranformations
-sudo apt install -y ros-humble-tf-transformations
+sudo apt-get install -y ros-humble-tf-transformations
 
 # Install rviz imu plugin
 sudo apt-get install -y ros-humble-rviz-imu-plugin
