@@ -32,11 +32,11 @@ sudo apt install -y ros-dev-tools
 
 # Install Chrome Remote Desktop
 wget -O /tmp/chrome-remote-desktop_current_amd64.deb https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-sudo apt-get install -y /tmp/chrome-remote-desktop_current_amd64.deb
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y /tmp/chrome-remote-desktop_current_amd64.deb
 
 # Install Visual Studio Code
 curl -L -o /tmp/vsc.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
-sudo apt-get install -y /tmp/vsc.deb
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y /tmp/vsc.deb
 
 mkdir ./AutoDrive/
 mkdir ./AutoDrive/DevKit
