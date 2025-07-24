@@ -4,7 +4,7 @@
 export DEBIAN_FRONTEND=noninteractive
 
 # Update and Upgrade
-# sudo NEEDRESTART_MODE=a apt update && sudo apt upgrade -y
+# sudo apt update && sudo NEEDRESTART_MODE=a apt upgrade -y
 
 # Update Packages
 sudo apt update
