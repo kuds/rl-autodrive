@@ -38,6 +38,25 @@ sudo apt-get install --assume-yes /tmp/chrome-remote-desktop_current_amd64.deb
 curl -L -o /tmp/vsc.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 sudo apt-get install --assume-yes /tmp/vsc.deb
 
+mkdir ./AutoDrive/
+mkdir ./AutoDrive/DevKit
+mkdir ./AutoDrive/Explore
+mkdir ./AutoDrive/Practice
+mkdir ./AutoDrive/Compete
+mkdir ./AutoDrive/DevKit//autodrive_devkit
+mkdir ./AutoDrive/Practice/autodrive_simulator
+mkdir ./AutoDrive/Compete/autodrive_simulator
+
+sudo chmod 777 -v ./AutoDrive/
+sudo chmod 777 -v ./AutoDrive/DevKit
+sudo chmod 777 -v ./AutoDrive/Explore
+sudo chmod 777 -v ./AutoDrive/Practice
+sudo chmod 777 -v ./AutoDrive/Compete
+sudo chmod 777 -v ./AutoDrive/DevKit//autodrive_devkit
+sudo chmod 777 -v ./AutoDrive/Explore/autodrive_simulator
+sudo chmod 777 -v ./AutoDrive/Practice/autodrive_simulator
+sudo chmod 777 -v ./AutoDrive/Compete/autodrive_simulator
+
 # Get AutoDrive Files
 wget -P ./AutoDrive/Explore https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_simulator_explore_linux.zip
 unzip ./AutoDrive/Explore/autodrive_simulator_explore_linux.zip -d ./AutoDrive/Explore
@@ -53,15 +72,7 @@ sudo chmod +x "./AutoDrive/Compete/autodrive_simulator/AutoDRIVE Simulator.x86_6
 
 wget -P ./AutoDrive/DevKit https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-icra/autodrive_devkit.zip
 unzip ./AutoDrive/DevKit/autodrive_devkit.zip -d ./AutoDrive/DevKit
-sudo chmod 777 -v ./AutoDrive/
-sudo chmod 777 -v ./AutoDrive/DevKit
-sudo chmod 777 -v ./AutoDrive/Explore
-sudo chmod 777 -v ./AutoDrive/Practice
-sudo chmod 777 -v ./AutoDrive/Compete
-sudo chmod 777 -v ./AutoDrive/DevKit//autodrive_devkit
-sudo chmod 777 -v ./AutoDrive/Explore/autodrive_simulator
-sudo chmod 777 -v ./AutoDrive/Practice/autodrive_simulator
-sudo chmod 777 -v ./AutoDrive/Compete/autodrive_simulator
+
 
 # Install Docker Engine
 # Add Docker's official GPG key:
