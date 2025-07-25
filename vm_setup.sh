@@ -39,8 +39,8 @@ curl -L -o /tmp/vsc.deb "https://code.visualstudio.com/sha/download?build=stable
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y /tmp/vsc.deb
 
 # Install Foxglove
-wget -O /tmp/foxglove-studio-latest-linux-arm64.deb https://get.foxglove.dev/desktop/latest/foxglove-studio-latest-linux-arm64.deb
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y /tmp/foxglove-studio-latest-linux-arm64.deb
+wget -O /tmp/foxglove-studio-latest-linux-amd64.deb https://get.foxglove.dev/desktop/latest/foxglove-studio-latest-linux-amd64.deb
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y /tmp/foxglove-studio-latest-linux-amd64.deb
 
 mkdir ./AutoDrive/
 mkdir ./AutoDrive/DevKit
