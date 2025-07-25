@@ -38,6 +38,10 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y /tmp/chrome-remote-deskto
 curl -L -o /tmp/vsc.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y /tmp/vsc.deb
 
+# Install Foxglove
+wget -O /tmp/foxglove-studio-latest-linux-arm64.deb https://get.foxglove.dev/desktop/latest/foxglove-studio-latest-linux-arm64.deb
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y /tmp/foxglove-studio-latest-linux-arm64.deb
+
 mkdir ./AutoDrive/
 mkdir ./AutoDrive/DevKit
 mkdir ./AutoDrive/Explore
