@@ -22,3 +22,4 @@ curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_s
 - [Docker Documentation](https://docs.docker.com)
 - [Google Cloud Platform - Enable Nested Virtualization](https://cloud.google.com/compute/docs/instances/nested-virtualization/enabling)
 - [Techincal Guide - AutoDRIVE Ecosystem](https://autodrive-ecosystem.github.io/competitions/roboracer-sim-racing-guide/)
+- [Orientation | RoboRacer Sim Racing League @ ICRA 2025](https://www.youtube.com/watch?v=Mit9c8B-06o)
