@@ -7,6 +7,9 @@
 # desktop environment, drivers, ROS 2, Docker, and other development tools.
 #==============================================================================
 
+# Run to get latest kernal and system updates
+# sudo apt update && sudo NEEDRESTART_MODE=a apt upgrade -y
+
 # Exit immediately if a command fails
 set -e
 
