@@ -37,7 +37,7 @@ apt-get install -y \
     python3-pip \
     python3.10-venv
 
----
+# ---
 
 ## Section 2: Drivers & Third-Party Repositories
 echo "### Installing drivers and adding third-party software repositories... ###"
@@ -69,7 +69,7 @@ echo "Setting up Microsoft repository..."
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/keyrings/packages.microsoft.gpg
 echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list
 
----
+# ---
 
 ## Section 3: Application Installation
 echo "### Installing applications from all configured repositories... ###"
@@ -97,7 +97,7 @@ wget -O /tmp/foxglove.deb https://get.foxglove.dev/desktop/latest/foxglove-studi
 apt-get install -y /tmp/foxglove.deb
 rm /tmp/foxglove.deb
 
----
+# ---
 
 ## Section 4: AutoDRIVE Environment Setup
 echo "### Setting up the AutoDRIVE environment... ###"
@@ -131,7 +131,7 @@ docker pull autodriveecosystem/autodrive_roboracer_sim:2025-icra-compete
 # Add the user to the 'docker' group to run Docker commands without sudo
 usermod -aG docker $SUDO_USER
 
----
+# ---
 
 ## Section 5: Python Dependencies
 echo "### Installing Python dependencies... ###"
@@ -141,7 +141,7 @@ sudo -u $SUDO_USER pip3 install --upgrade pip setuptools packaging
 sudo -u $SUDO_USER pip3 install -r ./AutoDrive/DevKit/autodrive_devkit/requirements_python_3.10.txt
 sudo -u $SUDO_USER pip3 install numpy==1.23.5 opencv-contrib-python==4.8.1.78 attrdict
 
----
+# ---
 
 ## ✅ Finalization
 echo ""
