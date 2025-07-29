@@ -140,6 +140,9 @@ echo "### Installing Python dependencies... ###"
 sudo -u $SUDO_USER pip3 install --upgrade pip setuptools packaging
 sudo -u $SUDO_USER pip3 install -r ./AutoDrive/DevKit/autodrive_devkit/requirements_python_3.10.txt
 sudo -u $SUDO_USER pip3 install numpy==1.23.5 opencv-contrib-python==4.8.1.78 attrdict
+# Install PyTorch with specific CUDA version
+sudo -u $SUDO_USER pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+
 
 # ---
 
