@@ -14,6 +14,11 @@ This script will setup all the dependencies include docker if virtualization is 
 curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_setup.sh | sudo bash
 ```
 
+Once everything is built and running, run this test command to send a basic thorttle amount
+```bash
+ros2 topic pub --once /autodrive/roboracer_1/throttle_command std_msgs/msg/Float32 "{data: 0.001}"
+```
+
 ## Helpful Links
 - [How to stop ubuntu pop-up "Daemons using outdated libraries" when using apt to install or update packages? [closed]](https://stackoverflow.com/questions/73397110/how-to-stop-ubuntu-pop-up-daemons-using-outdated-libraries-when-using-apt-to-i)
 - [Launch Ubuntu 22.04 Desktop on Google Cloud](https://ubuntu.com/blog/launch-ubuntu-22-04-desktop-on-google-cloud)
