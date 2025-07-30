@@ -140,7 +140,8 @@ usermod -aG docker $SUDO_USER
 echo "### Installing Python dependencies... ###"
 
 # Run pip as the original user to install packages in the user's home directory
-sudo -u $SUDO_USER pip3 install --upgrade pip setuptools packaging
+sudo -u $SUDO_USER pip3 install --upgrade pip packaging
+sudo -u $SUDO_USER pip3 install setuptools==79.0.1
 sudo -u $SUDO_USER pip3 install -r ./AutoDrive/DevKit/autodrive_devkit/requirements_python_3.10.txt
 sudo -u $SUDO_USER pip3 install numpy==1.23.5 opencv-contrib-python==4.8.1.78 attrdict
 # Install PyTorch with specific CUDA version
