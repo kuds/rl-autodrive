@@ -8,6 +8,13 @@
 
 ## Script Setup
 
+### Prework
+
+When launching a new instance, it is always good practice to get latest on the libraries
+```bash
+sudo apt update && sudo apt upgrade
+```
+
 ### ICRA 2025
 This script will setup all the dependencies include docker if virtualization is enabled on Google Cloud VM Instance
 ```bash
