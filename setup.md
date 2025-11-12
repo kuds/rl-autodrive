@@ -26,6 +26,34 @@ Once everything is built and running, run this test command to send a basic thor
 ros2 topic pub --once /autodrive/roboracer_1/throttle_command std_msgs/msg/Float32 "{data: 0.001}"
 ```
 
+## Helpful Command
+
+### Run AutoDrive Viewer/Map
+
+#### Setup ROS2 Humble Source in Terminal
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+#### Launch AutoDriver Viewer
+```bash
+./AutoDRIVE\ Simulator.x86_64
+```
+
+### Run AutoDrive DevKit
+
+#### Build DevKit
+```bash
+# ./Autodrive_Devkit
+colcon build
+```
+
+#### Run DevKit
+```bash
+source install/setup.bash
+ros2 launch autodrive_roboracer bringup_graphics.launch.py
+```
+
 ## Helpful Links
 - [How to stop ubuntu pop-up "Daemons using outdated libraries" when using apt to install or update packages? [closed]](https://stackoverflow.com/questions/73397110/how-to-stop-ubuntu-pop-up-daemons-using-outdated-libraries-when-using-apt-to-i)
 - [Launch Ubuntu 22.04 Desktop on Google Cloud](https://ubuntu.com/blog/launch-ubuntu-22-04-desktop-on-google-cloud)
