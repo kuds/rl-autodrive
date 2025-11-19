@@ -8,7 +8,7 @@
 
 ## Script Setup
 
-### Prework
+### Pre-work
 
 When launching a new instance, it is always good practice to get latest on the libraries
 ```bash
@@ -19,6 +19,12 @@ sudo apt update && sudo apt upgrade
 This script will setup all the dependencies include docker if virtualization is enabled on Google Cloud VM Instance
 ```bash
 curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_setup.sh | sudo bash
+```
+
+### CDC-TF 2025
+This script will setup all the dependencies include docker if virtualization is enabled on Google Cloud VM Instance
+```bash
+curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_setup_cdc_tf_2025.sh | sudo bash
 ```
 
 Once everything is built and running, run this test command to send a basic thorttle amount
