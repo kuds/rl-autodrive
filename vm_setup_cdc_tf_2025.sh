@@ -137,6 +137,9 @@ usermod -aG docker $SUDO_USER
 
 # ---
 
+## Instal SLAM
+sudo apt install ros-humble-slam-toolbox
+
 ## Section 5: Python Dependencies
 echo "### Installing Python dependencies... ###"
 
