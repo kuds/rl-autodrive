@@ -115,7 +115,7 @@ wget -q --show-progress -P AutoDrive/DevKit https://github.com/AutoDRIVE-Ecosyst
 unzip -q AutoDrive/DevKit/autodrive_devkit.zip -d AutoDrive/DevKit
 
 # Loop through simulator types to download, unpack, and set permissions
-for SIM_TYPE in Explore Practice Compete; do
+for SIM_TYPE in Explore Practice; do
     echo "Downloading AutoDRIVE Simulator: $SIM_TYPE..."
     LOWER_SIM_TYPE=$(echo "$SIM_TYPE" | tr '[:upper:]' '[:lower:]')
     wget -q --show-progress -P AutoDrive/$SIM_TYPE https://github.com/AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Sim-Racing/releases/download/2025-cdc-tf/autodrive_simulator_${LOWER_SIM_TYPE}_linux.zip
