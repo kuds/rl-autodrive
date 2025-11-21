@@ -25,12 +25,17 @@ fi
 ## Section 1: System Update & Core Packages
 echo "### Updating system and installing core packages... ###"
 
-# --- FIX FOR COLORD ERROR ---
-# Pre-create the colord group and user to prevent tmpfiles.d errors during install
-# We use '|| true' to prevent the script from exiting if the group/user already exists
+# --- FIX FOR MISSING USERS (Colord & Speech-Dispatcher) ---
+# These users must exist before packages install to prevent tmpfiles.d errors
+
+# 1. Fix colord
 addgroup --system colord || true
 adduser --system --ingroup colord --home /var/lib/colord colord || true
-# ----------------------------
+
+# 2. Fix speech-dispatcher
+addgroup --system speech-dispatcher || true
+adduser --system --ingroup speech-dispatcher --no-create-home --home /var/run/speech-dispatcher speech-dispatcher || true
+# ----------------------------------------------------------
 
 apt-get update
 apt-get upgrade -y
