@@ -136,7 +136,15 @@ usermod -aG docker $SUDO_USER
 
 # ---
 
-## Section 5: Python Dependencies
+## Section 5: Install ROS2 Packages
+echo "### Installing ROS2 Packages... ###"
+
+# Instal SLAM
+sudo apt install ros-humble-slam-toolbox
+
+# ---
+
+## Section 6: Python Dependencies
 echo "### Installing Python dependencies... ###"
 
 # Run pip as the original user to install packages in the user's home directory
