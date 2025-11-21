@@ -58,7 +58,8 @@ echo "### Installing drivers and adding third-party software repositories... ###
 
 # --- NVIDIA Drivers ---
 echo "Installing NVIDIA drivers..."
-ubuntu-drivers install -y
+# FIX: Removed '-y' because ubuntu-drivers does not accept it (it handles yes automatically)
+ubuntu-drivers install
 
 # --- ROS 2 Humble ---
 echo "Setting up ROS 2 Humble repository..."
