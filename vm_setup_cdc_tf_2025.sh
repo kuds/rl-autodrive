@@ -98,6 +98,7 @@ apt-get install -y \
     ros-dev-tools \
     ros-humble-tf-transformations \
     ros-humble-rviz-imu-plugin \
+    ros-humble-slam-toolbox \
     docker-ce \
     docker-ce-cli \
     containerd.io \
@@ -147,14 +148,6 @@ docker pull autodriveecosystem/autodrive_roboracer_sim:2025-cdc-tf-practice
 
 # Add the user to the 'docker' group to run Docker commands without sudo
 usermod -aG docker $SUDO_USER
-
-# ---
-
-## Section 5: Install ROS2 Packages
-echo "### Installing ROS2 Packages... ###"
-
-# Instal SLAM
-apt install -y ros-humble-slam-toolbox
 
 # ---
 
