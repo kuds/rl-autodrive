@@ -1,20 +1,20 @@
 #!/bin/bash
 
 #==============================================================================
-#                 Ubuntu 22.04 VM Setup Script for AutoDRIVE
+#               Ubuntu 22.04 VM Setup Script for AutoDRIVE
 #==============================================================================
 # This script automates the setup of an Ubuntu 22.04 virtual machine with a
 # desktop environment, drivers, ROS 2, Docker, and other development tools.
 #==============================================================================
-
-# Run to get latest kernal and system updates
-# sudo apt update && sudo NEEDRESTART_MODE=a apt upgrade -y
 
 # Exit immediately if a command fails
 set -e
 
 # Prevent interactive prompts during package installation
 export DEBIAN_FRONTEND=noninteractive
+
+# Set 'needrestart' to automatically restart services without prompting
+export NEEDRESTART_MODE=a 
 
 # Ensure script is run with sudo
 if [ "$EUID" -ne 0 ]; then
@@ -25,9 +25,20 @@ fi
 ## Section 1: System Update & Core Packages
 echo "### Updating system and installing core packages... ###"
 
+# --- FIX FOR MISSING USERS (Colord & Speech-Dispatcher) ---
+# These users must exist before packages install to prevent tmpfiles.d errors
+
+# 1. Fix colord
+addgroup --system colord || true
+adduser --system --ingroup colord --home /var/lib/colord colord || true
+
+# 2. Fix speech-dispatcher
+addgroup --system speech-dispatcher || true
+adduser --system --ingroup speech-dispatcher --no-create-home --home /var/run/speech-dispatcher speech-dispatcher || true
+# ----------------------------------------------------------
+
 apt-get update
-# Automatically handle interactive prompts for service restarts
-NEEDRESTART_MODE=a apt-get upgrade -y
+apt-get upgrade -y
 
 # Install essential packages and the desktop environment in a single command
 apt-get install -y \
@@ -47,6 +58,7 @@ echo "### Installing drivers and adding third-party software repositories... ###
 
 # --- NVIDIA Drivers ---
 echo "Installing NVIDIA drivers..."
+# FIX: Removed '-y' because ubuntu-drivers does not accept it (it handles yes automatically)
 ubuntu-drivers install
 
 # --- ROS 2 Humble ---
@@ -92,7 +104,7 @@ apt-get install -y \
     docker-buildx-plugin \
     docker-compose-plugin \
     chrome-remote-desktop \
-    code # VS Code's package name is 'code'
+    code 
 
 # --- Foxglove Studio (via .deb) ---
 echo "Installing Foxglove Studio..."
@@ -115,6 +127,7 @@ wget -q --show-progress -P AutoDrive/DevKit https://github.com/AutoDRIVE-Ecosyst
 unzip -q AutoDrive/DevKit/autodrive_devkit.zip -d AutoDrive/DevKit
 
 # Loop through simulator types to download, unpack, and set permissions
+# for SIM_TYPE in Explore Practice Compete; do
 for SIM_TYPE in Explore Practice; do
     echo "Downloading AutoDRIVE Simulator: $SIM_TYPE..."
     LOWER_SIM_TYPE=$(echo "$SIM_TYPE" | tr '[:upper:]' '[:lower:]')
@@ -129,24 +142,29 @@ chown -R $SUDO_USER:$SUDO_USER ./AutoDrive
 
 # Pull AutoDRIVE Docker images
 echo "Pulling AutoDRIVE Docker images..."
-docker pull autodriveecosystem/autodrive_roboracer_sim:2025-cdc-tf-practice
 docker pull autodriveecosystem/autodrive_roboracer_api:2025-cdc-tf-practice
+docker pull autodriveecosystem/autodrive_roboracer_sim:2025-cdc-tf-practice
 
 # Add the user to the 'docker' group to run Docker commands without sudo
 usermod -aG docker $SUDO_USER
 
 # ---
 
-## Instal SLAM
-sudo apt install ros-humble-slam-toolbox
+## Section 5: Install ROS2 Packages
+echo "### Installing ROS2 Packages... ###"
 
-## Section 5: Python Dependencies
+# Instal SLAM
+apt install -y ros-humble-slam-toolbox
+
+# ---
+
+## Section 6: Python Dependencies
 echo "### Installing Python dependencies... ###"
 
 # Run pip as the original user to install packages in the user's home directory
 sudo -u $SUDO_USER pip3 install --upgrade pip packaging
 # sudo -u $SUDO_USER pip3 install setuptools==79.0.1
-#sudo -u $SUDO_USER pip3 install -r ./AutoDrive/DevKit/autodrive_devkit/requirements_python_3.10.txt
+# sudo -u $SUDO_USER pip3 install -r ./AutoDrive/DevKit/autodrive_devkit/requirements_python_3.10.txt
 # sudo -u $SUDO_USER pip3 install numpy==1.23.5 opencv-contrib-python==4.8.1.78 attrdict
 # Install PyTorch with specific CUDA version
 # sudo -u $SUDO_USER pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
