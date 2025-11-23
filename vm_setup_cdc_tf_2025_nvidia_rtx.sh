@@ -60,11 +60,18 @@ echo "Purging old NVIDIA drivers..."
 apt-get purge -y nvidia* libnvidia* || true
 apt-get autoremove -y
 
-# 2. Disable GSP Firmware (CRITICAL for T4/L4 vWS stability)
+# 2. FIX COMPILER MISMATCH (Install GCC-12)
+# Google Cloud Kernels are often built with GCC-12, but Ubuntu 22.04 defaults to GCC-11.
+# We must install GCC-12 and set it as the active compiler for the driver installation.
+echo "Installing GCC-12 to match Kernel compiler version..."
+apt-get install -y gcc-12 g++-12
+export CC=/usr/bin/gcc-12
+
+# 3. Disable GSP Firmware (CRITICAL for T4/L4 vWS stability)
 echo "Disabling GSP Firmware..."
 bash -c 'echo "options nvidia NVreg_EnableGpuFirmware=0" > /etc/modprobe.d/nvidia-gsp.conf'
 
-# 3. Download & Install NVIDIA GRID Driver (vGPU 19.1)
+# 4. Download & Install NVIDIA GRID Driver (vGPU 19.1)
 GRID_VER="580.82.07"
 GRID_URL="https://storage.googleapis.com/nvidia-drivers-us-public/GRID/vGPU19.1/NVIDIA-Linux-x86_64-${GRID_VER}-grid.run"
 
@@ -73,10 +80,11 @@ wget -O /tmp/nvidia_grid_driver.run "${GRID_URL}"
 chmod +x /tmp/nvidia_grid_driver.run
 
 echo "Installing NVIDIA GRID Driver..."
-/tmp/nvidia_grid_driver.run --silent --no-questions
+# We pass CC=/usr/bin/gcc-12 explicitly to the installer just in case
+CC=/usr/bin/gcc-12 /tmp/nvidia_grid_driver.run --silent --no-questions
 rm /tmp/nvidia_grid_driver.run
 
-# 4. Install CUDA Toolkit 12.4 (Without overwriting the driver)
+# 5. Install CUDA Toolkit 12.4 (Without overwriting the driver)
 CUDA_RUNFILE="cuda_12.4.1_550.54.15_linux.run"
 CUDA_URL="https://developer.download.nvidia.com/compute/cuda/12.4.1/local_installers/${CUDA_RUNFILE}"
 
@@ -86,7 +94,7 @@ echo "Installing CUDA Toolkit..."
 sh /tmp/${CUDA_RUNFILE} --silent --toolkit
 rm /tmp/${CUDA_RUNFILE}
 
-# 5. Set Environment Variables
+# 6. Set Environment Variables
 echo 'export PATH=/usr/local/cuda-12.4/bin${PATH:+:${PATH}}' >> /etc/profile.d/cuda.sh
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> /etc/profile.d/cuda.sh
 
