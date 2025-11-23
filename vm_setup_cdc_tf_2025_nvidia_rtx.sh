@@ -47,7 +47,9 @@ apt-get install -y \
     git \
     python3-pip \
     python3.10-venv \
-    libvulkan1
+    libvulkan1 \
+    pkg-config \
+    libglvnd-dev
 
 # ---
 
