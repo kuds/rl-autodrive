@@ -36,19 +36,18 @@ adduser --system --ingroup speech-dispatcher --no-create-home --home /var/run/sp
 apt-get update
 apt-get upgrade -y
 
-# Install essential packages, build tools (for drivers), and desktop environment
+# Install essential packages and desktop environment
+# Note: linux-headers and build tools moved to Section 2 to group with Driver setup
 apt-get install -y \
     ubuntu-desktop \
-    build-essential \
-    linux-headers-$(uname -r) \
-    libvulkan1 \
     software-properties-common \
     curl \
     wget \
     unzip \
     git \
     python3-pip \
-    python3.10-venv
+    python3.10-venv \
+    libvulkan1
 
 # ---
 
@@ -60,11 +59,22 @@ echo "Purging old NVIDIA drivers..."
 apt-get purge -y nvidia* libnvidia* || true
 apt-get autoremove -y
 
-# 2. FIX COMPILER MISMATCH (Install GCC-12)
-# Google Cloud Kernels are often built with GCC-12, but Ubuntu 22.04 defaults to GCC-11.
-# We must install GCC-12 and set it as the active compiler for the driver installation.
-echo "Installing GCC-12 to match Kernel compiler version..."
-apt-get install -y gcc-12 g++-12
+# 2. PREPARE COMPILER (User Requested Updates)
+echo "Configuring GCC-12 for Driver Installation..."
+apt install -y gcc-12 g++-12
+apt install -y linux-headers-$(uname -r) build-essential
+
+# Setup update-alternatives to point 'gcc' to 'gcc-12'
+# We install gcc-12 with priority 100 to ensure it becomes the auto-default
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 100
+update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-12 100
+
+# Note: 'update-alternatives --config gcc' is interactive and breaks scripts.
+# We use '--set' instead to explicitly force the selection without user input.
+update-alternatives --set gcc /usr/bin/gcc-12
+update-alternatives --set g++ /usr/bin/g++-12
+
+# Explicitly export CC for the current shell just in case
 export CC=/usr/bin/gcc-12
 
 # 3. Disable GSP Firmware (CRITICAL for T4/L4 vWS stability)
@@ -80,8 +90,8 @@ wget -O /tmp/nvidia_grid_driver.run "${GRID_URL}"
 chmod +x /tmp/nvidia_grid_driver.run
 
 echo "Installing NVIDIA GRID Driver..."
-# We pass CC=/usr/bin/gcc-12 explicitly to the installer just in case
-CC=/usr/bin/gcc-12 /tmp/nvidia_grid_driver.run --silent --no-questions
+# The installer will now find gcc-12 automatically due to the steps above
+/tmp/nvidia_grid_driver.run --silent --no-questions
 rm /tmp/nvidia_grid_driver.run
 
 # 5. Install CUDA Toolkit 12.4 (Without overwriting the driver)
