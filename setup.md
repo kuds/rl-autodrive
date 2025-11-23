@@ -27,6 +27,11 @@ This script will setup all the dependencies include docker if virtualization is 
 curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_setup_cdc_tf_2025.sh | sudo bash
 ```
 
+This script will setup all the dependencies including RTX Nvidia Virtual Workstations
+```bash
+curl -s https://raw.githubusercontent.com/kuds/rl-autodrive/refs/heads/main/vm_setup_cdc_tf_2025_nvidia_rtx.sh | sudo bash
+```
+
 Once everything is built and running, run this test command to send a basic thorttle amount
 ```bash
 ros2 topic pub --once /autodrive/roboracer_1/throttle_command std_msgs/msg/Float32 "{data: 0.001}"
