@@ -72,5 +72,5 @@ ros2 launch autodrive_roboracer bringup_graphics.launch.py
 - [ROS 2 Documentation: Humble - Ubuntu Installation](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 - [Docker Documentation](https://docs.docker.com)
 - [Google Cloud Platform - Enable Nested Virtualization](https://cloud.google.com/compute/docs/instances/nested-virtualization/enabling)
-- [Techincal Guide - AutoDRIVE Ecosystem](https://autodrive-ecosystem.github.io/competitions/roboracer-sim-racing-guide/)
+- [Techincal Guide - AutoDRIVE Ecosystem](https://autodrive-ecosystem.github.io/competitions/roboracer-sim-racing-guide-2025/)
 - [Orientation | RoboRacer Sim Racing League @ ICRA 2025](https://www.youtube.com/watch?v=Mit9c8B-06o)
