@@ -57,6 +57,19 @@ source /opt/ros/humble/setup.bash
 xvfb-run -a ./AutoDRIVE\ Simulator.x86_64 -batchmode -ip 127.0.0.1 -port 4567
 ```
 
+### Launch AutoDriver in No Graphics Mode
+```bash
+xvfb-run -a -s "-screen 0 1280x720x24" \
+  ./autodrive_simulator.x86_64 \
+  -batchmode \
+  -nographics \  <-- REMOVE THIS if using camera sensors/rendering
+  -force-vulkan \
+  -noaudio \
+  -logFile /tmp/unity_log.txt
+```
+Important Note on -nographics: If your simulation uses Cameras/Lidar to capture data for Reinforcement Learning, do not use the -nographics flag. That flag stops the GPU from rendering the frame buffer, returning black images to your sensors. Use -batchmode combined with xvfb as shown above.
+
+
 ### Run AutoDrive DevKit
 
 #### Build DevKit
