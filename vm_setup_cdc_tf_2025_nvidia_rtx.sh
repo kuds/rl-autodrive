@@ -206,8 +206,8 @@ sudo -u $SUDO_USER pip3 install --upgrade pip packaging
 # sudo -u $SUDO_USER pip3 install setuptools==79.0.1
 sudo -u $SUDO_USER pip3 install -r ./AutoDrive/DevKit/autodrive_devkit/requirements_python_3.10.txt
 # sudo -u $SUDO_USER pip3 install numpy==1.23.5 opencv-contrib-python==4.8.1.78 attrdict
-sudo -u $SUDO_USER pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
-# sudo -u $SUDO_USER pip3 install stable-baselines3
+# sudo -u $SUDO_USER pip3 install stable-baselines3==2.5.0 pandas==2.0.3 gymnasium==1.1.1
+sudo -u $SUDO_USER pip3 install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
 
 # ---
 
