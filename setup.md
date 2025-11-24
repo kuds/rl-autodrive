@@ -5,6 +5,7 @@
 - Architecture: x86/64
 - Operating System: Ubuntu Pro 22.04 LTS (Jammy)
 - GPUs: NVIDIA L4, V100, A100
+- Optional: NVIDIA GRID (10%~20% increase in rendering speed) 
 
 ## Script Setup
 
@@ -51,6 +52,11 @@ source /opt/ros/humble/setup.bash
 ./AutoDRIVE\ Simulator.x86_64
 ```
 
+### Launch AutoDriver in Headless Mode
+```bash
+xvfb-run -a ./AutoDRIVE\ Simulator.x86_64 -batchmode -ip 127.0.0.1 -port 4567
+```
+
 ### Run AutoDrive DevKit
 
 #### Build DevKit
@@ -61,7 +67,7 @@ colcon build
 
 #### Run DevKit
 ```bash
-source install/setup.bash
+# source install/setup.bash
 ros2 launch autodrive_roboracer bringup_graphics.launch.py
 ```
 
